@@ -6,7 +6,7 @@ let https = require("https");
 var Encryption = require('./encryption.js');
 
 // Do not change this value, it is static.
-let initial_app_strings = "geORNtsZe5I4lRGjG9GZiA";
+let initial_app_strings = "9s5rfKVuMrT03RtzajWNcA";
 // Possible value are NE (Europe), NNA (North America) and NCI (Canada).
 let region_code = process.env.regioncode;
 // You should store your username and password as environment variables. 
@@ -28,7 +28,7 @@ function sendRequest(action, requestData, successCallback, failureCallback) {
 	const options = {
 		hostname: "gdcportalgw.its-mo.com",
 		port: 443,
-		path: "/gworchest_160803EC/gdc/" + action,
+		path: "/api_v190426_NE/gdc/" + action,
 		method: "POST",
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded",
@@ -72,7 +72,7 @@ function sendRequest(action, requestData, successCallback, failureCallback) {
 function login(successCallback) {
 	sendRequest("UserLoginRequest.php", 
 	"UserId=" + username +
-	"&initial_app_strings=" + initial_app_strings +
+	"&initial_app_str=" + initial_app_strings +
 	"&RegionCode=" + region_code +
 	"&Password=" + password,
 	loginResponse => {
